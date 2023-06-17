@@ -3,6 +3,7 @@ import {useState} from 'react'
 // table
 import DataTable from '../Table/DataTable.jsx'
 import Exercise from '../Exercise/Exercise.jsx'
+import ChartComp from '../Chart/ChartComp.jsx'
 
 // api
 import {getFoodData} from '../../services/api.jsx'
@@ -163,6 +164,25 @@ const Form = () => {
                     />}
                 </Grid>}
               </Grid>
+            </Box>}
+
+            {/* chart */}
+            {data && data.length > 0 && <Box>
+              <Grid item xs={12} sm={12} md={6} >
+                    {data && data.length > 0 && <ChartComp
+                      name={data[0].name}
+                      serving_size={data[0].serving_size_g}
+                      carbohydrates={data[0].carbohydrates_total_g}
+                      cholesterol={data[0].cholesterol_mg}
+                      saturated_fat={data[0].fat_saturated_g}
+                      total_fat={data[0].fat_total_g}
+                      fiber_content={data[0].fiber_g}
+                      potassium={data[0].potassium_mg}
+                      protein={data[0].protein_g}
+                      sodium={data[0].sodium_mg}
+                      sugar={data[0].sugar_g}
+                    />}
+                  </Grid>
             </Box>}
 
 

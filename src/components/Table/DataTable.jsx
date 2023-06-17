@@ -32,9 +32,33 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-
-
 const DataTable = (props) => {
+
+    const names = [
+        'Carbohydrates', 
+        'Cholesterol', 
+        'Saturated Fat', 
+        'Total Fat', 
+        'Fiber Content', 
+        'Potassium', 
+        'Protein', 
+        'Sodium', 
+        'sugar'
+    ]
+    
+    const values = [
+        props.carbohydrates,
+        props.cholesterol,
+        props.saturated_fat,
+        props.total_fat,
+        props.fiber_content,
+        props.potassium,
+        props.protein,
+        props.sodium,
+        props.sugar
+    ]
+
+    
     return (
         <>
 
@@ -44,6 +68,7 @@ const DataTable = (props) => {
 
                 <Table sx={{ maxWidth: "10" }} aria-label="customized table">
 
+                    {/* headings */}
                     <TableHead>
                         <TableRow>
                             <StyledTableCell>Serving size per {props.serving_size}/grams </StyledTableCell>
@@ -51,106 +76,18 @@ const DataTable = (props) => {
                         </TableRow>
                     </TableHead>
 
+                    {/* values */}
                     <TableBody>
-
-                        {/* 1st para */}
-                        <StyledTableRow >
+                        {names.map((name, index) => (
+                            <StyledTableRow key={index}>
                             <StyledTableCell component="th" scope="row">
-                                Carbohydrates
+                                {name}
                             </StyledTableCell>
                             <StyledTableCell align="right">
-                                {props.carbohydrates}
+                                {values[index]}
                             </StyledTableCell>
-                        </StyledTableRow>
-
-
-                        {/* 2nd para */}
-                        <StyledTableRow >
-                            <StyledTableCell component="th" scope="row">
-                                Cholesterol
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                                {props.cholesterol}
-                            </StyledTableCell>
-                        </StyledTableRow>
-
-
-                        {/* 3rd para */}
-                        <StyledTableRow >
-                            <StyledTableCell component="th" scope="row">
-                                Saturated Fat
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                                {props.saturated_fat}
-                            </StyledTableCell>
-                        </StyledTableRow>
-
-
-                        {/* 4th para */}
-                        <StyledTableRow >
-                            <StyledTableCell component="th" scope="row">
-                                Total Fat
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                                {props.total_fat}
-                            </StyledTableCell>
-                        </StyledTableRow>
-
-
-                        {/* 5th para */}
-                        <StyledTableRow >
-                            <StyledTableCell component="th" scope="row">
-                                Fiber Content
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                                {props.fiber_content}
-                            </StyledTableCell>
-                        </StyledTableRow>
-
-
-                        {/* 6th para */}
-                        <StyledTableRow >
-                            <StyledTableCell component="th" scope="row">
-                                Potassium
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                                {props.potassium}
-                            </StyledTableCell>
-                        </StyledTableRow>
-
-
-                        {/* 7th para */}
-                        <StyledTableRow >
-                            <StyledTableCell component="th" scope="row">
-                                Protein
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                                {props.protein}
-                            </StyledTableCell>
-                        </StyledTableRow>
-
-
-                        {/* 8th para */}
-                        <StyledTableRow >
-                            <StyledTableCell component="th" scope="row">
-                                Sodium
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                                {props.sodium}
-                            </StyledTableCell>
-                        </StyledTableRow>
-
-
-                        {/* 9th para */}
-                        <StyledTableRow >
-                            <StyledTableCell component="th" scope="row">
-                                Sugar
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                                {props.sugar}
-                            </StyledTableCell>
-                        </StyledTableRow>
-
+                            </StyledTableRow>
+                        ))}
                     </TableBody>
                 </Table>
             </TableContainer>
