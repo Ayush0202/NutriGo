@@ -11,8 +11,10 @@ Nutrigo is a single-page application built with React and Vite, and has been dep
 
 ## Technologies Used
 
-- React
+- React.js - Frontend Application
 - [API Ninja](https://api-ninjas.com/api/nutrition) for the nutritional data
+- Recoil.js - State Management in React
+- Chart.js - Visualization of data
 
 
 ## Demo
