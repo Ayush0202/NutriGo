@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 // table
 import DataTable from "../Table/DataTable.jsx";
 import Exercise from "../Exercise/Exercise.jsx";
@@ -18,6 +16,9 @@ import Alert from "@mui/material/Alert";
 
 // logo
 import logo from "../../../public/logo.png";
+import { useRecoilState } from "recoil";
+import foodState from "../../store/atoms/FoodState.js";
+import dataState from "../../store/atoms/DataState.js";
 
 // component styles
 const ButtonStyle = styled(Button)`
@@ -56,8 +57,8 @@ const AlertStyle = styled(Alert)`
 `;
 
 const Form = () => {
-  const [food, setFood] = useState("");
-  const [data, getData] = useState(null);
+  const [food, setFood] = useRecoilState(foodState);
+  const [data, getData] = useRecoilState(dataState);
 
   const onValueChange = (e) => {
     setFood(e.target.value);
